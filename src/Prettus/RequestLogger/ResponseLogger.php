@@ -27,7 +27,8 @@ class ResponseLogger
         "common"    =>'{remote-addr} - {remote-user} [{date}] "{method} {url} HTTP/{http-version}" {status} {content-length}',
         "dev"       =>'{method} {url} {status} {response-time} ms - {content-length}',
         "short"     =>'{remote-addr} {remote-user} {method} {url} HTTP/{http-version} {status} {content-length} - {response-time} ms',
-        "tiny"      =>'{method} {url} {status} {content-length} - {response-time} ms'
+        "tiny"      =>'{method} {url} {status} {content-length} - {response-time} ms',
+        "detail"    => '{remote-addr} - {remote-user} [{date}] "{method} {url}" {status} Header:["Authorization":{req[Authorization]}] Request::{body} Response::{content}',
     ];
 
     /**
