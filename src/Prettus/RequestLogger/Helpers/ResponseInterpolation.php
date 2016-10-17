@@ -82,9 +82,15 @@ class ResponseInterpolation extends BaseInterpolation {
 
         $content = $this->response->getContent();
         $file    = $path.DIRECTORY_SEPARATOR."response-".time();
-        file_put_contents($file, $content);
-        $content_length = filesize($file);
-        unlink($file);
+        try{
+            file_put_contents($file, $content);
+            $content_length = filesize($file);
+            unlink($file);
+        }catch (\Exception $e)
+        {
+            $content_length = 0;
+        }
+
 
         return $content_length;
     }
